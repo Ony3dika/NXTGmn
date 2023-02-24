@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  .nav-icon {
+    @apply text-lime-500 font-extrabold;
+  }
+}
+
+/* body {
+  overflow-x: hidden;
+} */
