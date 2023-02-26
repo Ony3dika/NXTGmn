@@ -11,8 +11,9 @@ function Nav() {
     <nav
       className={`flex flex-row md:px-12 lg:px-0 h-auto fixed z-10 top-0 bg-primary lg:bg-primary/70 lg:backdrop-blur-3xl lg:justify-between w-screen  text-white py-6 `}
     >
-      <section className='lg:basis-1/4 px-4 basis-full lg:block flex lg:px-0 justify-between lg:text-center text-lg lg:text-2xl font-bold'>
+      <section className='lg:basis-1/4 basis-full lg:block flex lg:px-0 px-4 justify-between lg:text-center text-lg lg:text-2xl font-bold'>
         <h3>NXTGaming</h3>
+
         <div>
           <FiMenu
             size={"1.5rem"}
@@ -43,11 +44,11 @@ function Nav() {
 
       {/* Sidebar */}
       <section
-        className={`flex-col justify-around lg:hidden font-thin rounded-r-xl h-screen w-2/3 backdrop-blur-3xl bg-gradient-to-b from-sub/50 to-primary/90 fixed left-0 top-0 z-10 transition-all ${
+        className={`flex-col justify-around md:pl-14 md:pt-5 lg:hidden font-thin rounded-r-xl h-screen w-2/3 backdrop-blur-3xl bg-gradient-to-b from-sub/30 to-primary/90 fixed left-0 top-0 z-10 transition-all duration-300 ${
           menu ? "left-0" : "left-[-100%]"
         } `}
       >
-        <div className='flex my-5 px-4 justify-between'>
+        <div className='flex my-5 px-4  justify-between'>
           <h3 className='text-lg font-bold'>NXTGaming</h3>
           <div>
             <MdClose
