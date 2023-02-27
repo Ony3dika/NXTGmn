@@ -6,13 +6,15 @@ function Intro() {
   return (
     <React.Fragment>
       <section className='container mx-auto lg:px-10 pt-24 lg:pt-32 md:pt-28 px-5 md:px-10  flex lg:flex-row flex-col'>
-        <InView triggerOnce={false} threshold={0.3}>
+        <InView triggerOnce={true} threshold={0.6}>
           {({ inView, ref, entry }) => (
             <div
               ref={ref}
-              className={`lg:basis-2/3 basis-full relative isolate ${inView ? "animate-slideup" : ""}`}
+              className={`lg:basis-2/3 basis-full opacity-0 relative isolate ${
+                inView ? "animate-slideup" : " "
+              }`}
             >
-              <p className='lg:text-8xl text-4xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-pinkWord via-tealWord to-orangeWord'>
+              <p className='lg:text-8xl text-4xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-pinkWord via-tealWord to-orangeWord bg-[200%]'>
                 Identify, Collect, and Sell Rare &
               </p>
 
@@ -30,20 +32,23 @@ function Intro() {
             </div>
           )}
         </InView>
+        <InView triggerOnce={true} threshold={0.6}>
+          {({ inView, ref, entry }) => (
+            <div ref={ref} className={`lg:basis-1/3 basis-full opacity-0 ${inView ? "animate-slideup2" : " " }`}>
+              <img
+                src={pic1}
+                className='rounded-xl h-3/4 object-cover w-full'
+                alt='image1'
+              />
 
-        <div className='lg:basis-1/3 basis-full'>
-          <img
-            src={pic1}
-            className='rounded-xl h-3/4 object-cover w-full'
-            alt='image1'
-          />
-
-          <p className='text-sm lg:text-base leading-loose lg:leading-normal text-text mt-5'>
-            Art, also called (to distinguish it from other art forms) visual
-            art. a visual object or experience consciously created through an
-            expression of skill or imagination.
-          </p>
-        </div>
+              <p className='text-sm lg:text-base leading-loose lg:leading-normal text-text mt-5'>
+                Art, also called (to distinguish it from other art forms) visual
+                art. a visual object or experience consciously created through
+                an expression of skill or imagination.
+              </p>
+            </div>
+          )}
+        </InView>
       </section>
     </React.Fragment>
   );

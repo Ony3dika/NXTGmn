@@ -10,5 +10,8 @@
 
 .col{
   color: #191b34;
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+  scale: 1;
+  background-position: center;
 }
 
