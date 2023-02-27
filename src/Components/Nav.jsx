@@ -9,9 +9,9 @@ function Nav() {
   const [menu, setMenu] = useState(false);
   return (
     <nav
-      className={`flex flex-row md:px-12 lg:px-0 h-auto fixed z-10 top-0 bg-primary lg:bg-primary/70 lg:backdrop-blur-3xl lg:justify-between w-screen  text-white py-6 `}
+      className={`flex flex-row md:px-12 lg:px-0 h-auto fixed z-10 top-0 bg-primary lg:bg-primary/80 lg:backdrop-blur-3xl lg:justify-between w-screen  text-white py-6 `}
     >
-      <section className='lg:basis-1/4 basis-full lg:block flex lg:px-0 px-4 justify-between lg:text-center text-lg lg:text-2xl font-bold'>
+      <section className='lg:basis-1/4 container mx-auto basis-full lg:block flex lg:px-0 md:px-10 px-4 justify-between lg:text-center text-lg lg:text-2xl font-bold'>
         <h3>NXTGaming</h3>
 
         <div>

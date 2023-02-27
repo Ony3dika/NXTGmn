@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Components/Footer.jsx";
 import Navp from "../../Components/Nav.jsx";
 import Arrivals from "./Arrivals.jsx";
 import Explore from "./Explore.jsx";
@@ -11,6 +12,7 @@ function Home() {
       <Intro />
       <Arrivals />
       <Explore />
+      <Footer />
     </main>
   );
 }
