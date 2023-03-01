@@ -4,13 +4,13 @@ import "./index.css";
 
 function App() {
   return (
-   <div>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Home/>} path="/"/>
-      </Routes>
-    </BrowserRouter>
-   </div>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Home />} path='/' />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -14,23 +14,23 @@ module.exports = {
         orangeWord: "#fff280",
       },
       animation: {
-        slideup: "slideup 1s cubic-bezier(.84,.18,.42,.94) forwards",
+        slideup: "slideup 1s cubic-bezier(.84,.18,.42,.94) 0.3s forwards",
 
-        slideup2: "slideup 1s cubic-bezier(.84,.18,.42,.94) 0.1s forwards",
+        slideup2: "slideup 1s cubic-bezier(.84,.18,.42,.94) 0.4s forwards",
 
         slidedown: "slidedown 1s cubic-bezier(.84,.18,.42,.94) forwards",
 
         slideleft: "slideleft 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
 
-        scale: "scale 2.5s cubic-bezier(.44,-0.29,.12,.96) both",
-
         slideright: "slideright 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
+
+        slideleftmax:
+          "slideleftmax 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
 
         slowfade: "slowfade 0.3s cubic-bezier(.84,.18,.62,.67) forwards",
       },
-      
+
       keyframes: {
-        
         slowfade: {
           from: { opacity: 1 },
           to: { opacity: 0 },
@@ -47,25 +47,17 @@ module.exports = {
         },
 
         slideleft: {
-          from: { opacity: 0, transform: "translateX(-20px)" },
+          from: { opacity: 0, transform: "translateX(-50px)" },
           to: { opacity: 1, transform: "translateX(0)" },
         },
 
-        scale: {
-          from: {
-            opacity: 0,
-            scale: 0,
-            blur: "400px",
-          },
-          to: {
-            opacity: 1,
-            scale: 1,
-            blur: "0px",
-          },
+        slideleftmax: {
+          from: { opacity: 0, transform: "translateX(-100%)" },
+          to: { opacity: 1, transform: "translateX(0)" },
         },
 
         slideright: {
-          from: { opacity: 0, transform: "translateX(20px)" },
+          from: { opacity: 0, transform: "translateX(50px)" },
           to: { opacity: 1, transform: "translateX(0)" },
         },
       },

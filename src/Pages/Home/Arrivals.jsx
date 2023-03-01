@@ -3,7 +3,7 @@ import { InView } from "react-intersection-observer";
 import pic2 from "../../assets/img14.jpg";
 import pic3 from "../../assets/img16.jpg";
 import pic4 from "../../assets/img18.jpg";
-import pic5 from "../../assets/img15.png";
+import pic5 from "../../assets/img15.jpg";
 import pic6 from "../../assets/img19.jpg";
 import pic7 from "../../assets/img17.jpg";
 import pic8 from "../../assets/img9.jpg";
@@ -54,9 +54,35 @@ function Arrivals() {
           </p>
         </div>
 
+        <InView triggerOnce={true} threshold={0.7}>
+          {({ inView, ref, entry }) => (
+            <p
+              ref={ref}
+              className={`md:mt-10 mt-5 text-sm lg:text-base lg:leading-normal leading-loose text-text ${
+                inView ? "animate-slideleft" : "animate-slowfade"
+              }`}
+            >
+              NXTGaming is thrilled to announce our latest new arrivals, which
+              are sure to excite gamers of all types! From top-picks of cutting-edge consoles
+              to immersive games, we've got everything you need to take your
+              gaming experience to the next level.
+              <br /> <br />
+              So what are you waiting for? Head on over to NXTGaming and check
+              out our new arrivals today! With our cutting-edge technology and
+              unparalleled selection of games, we're confident that you'll find
+              something that you love.
+            </p>
+          )}
+        </InView>
+
         <InView triggerOnce={true} threshold={0.3}>
           {({ inView, ref, entry }) => (
-            <div ref={ref} className={`grid grid-cols-6 gap-2.5 lg:gap-6 mt-6 opacity-0 ${inView ? "animate-scale" : "" } `}>
+            <div
+              ref={ref}
+              className={`grid grid-cols-6 gap-2.5 lg:gap-6 mt-6 opacity-0 ${
+                inView ? "animate-slideleft" : ""
+              } `}
+            >
               <div className='h-16 md:h-32 lg:h-56 rounded-lg col-start-2 col-end-4'>
                 <img
                   src={pic2}

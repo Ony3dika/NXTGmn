@@ -36,10 +36,12 @@ function Nav() {
           <FaBloggerB size={"1.3rem"} className='mr-2' />
           Blog
         </Link>
-        <Link className='my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord flex rounded-lg transition-all duration-300 ease-linear px-4 py-2'>
-          <MdContactPage size={"1.3rem"} className='mr-2' />
-          Contact
-        </Link>
+        <button className='my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg  hover:text-pinkWord focus:text-tealWord rounded-lg transition-all duration-300 ease-linear px-4 py-2'>
+          <a href="https://wa.me/+2348119233513" target={"_blank"} className='flex'>
+            <MdContactPage size={"1.3rem"} className='mr-2' />
+            Contact
+          </a>
+        </button>
       </section>
 
       {/* Sidebar */}
