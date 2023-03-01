@@ -24,11 +24,17 @@ function Nav() {
       </section>
 
       <section className='lg:basis-3/4 lg:flex lg:flex-row flex-col hidden justify-around font-thin'>
-        <Link className='px-4 py-2 my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'>
+        <Link
+          to={"/Game"}
+          className='px-4 py-2 my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'
+        >
           <FaHome size={"1.3rem"} className='mr-2' />
           Home
         </Link>
-        <Link className='px-4 py-2 my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'>
+        <Link
+          to={"/"}
+          className='px-4 py-2 my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'
+        >
           <GiShop size={"1.3rem"} className='mr-2' />
           Marketplace
         </Link>
@@ -37,7 +43,11 @@ function Nav() {
           Blog
         </Link>
         <button className='my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg  hover:text-pinkWord focus:text-tealWord rounded-lg transition-all duration-300 ease-linear px-4 py-2'>
-          <a href="https://wa.me/+2348119233513" target={"_blank"} className='flex'>
+          <a
+            href='https://wa.me/+2348119233513'
+            target={"_blank"}
+            className='flex'
+          >
             <MdContactPage size={"1.3rem"} className='mr-2' />
             Contact
           </a>
@@ -60,11 +70,17 @@ function Nav() {
             />
           </div>
         </div>
-        <Link className='px-4 py-3 my-4 rounded-lg focus:mx-4 focus:bg-primary/90  focus:text-tealWord transition-all duration-300 ease-linear flex'>
+        <Link
+          to={"/Game"}
+          className='px-4 py-3 my-4 rounded-lg focus:mx-4 focus:bg-primary/90  focus:text-tealWord transition-all duration-300 ease-linear flex'
+        >
           <FaHome size={"1.3rem"} className='mr-2' />
           Home
         </Link>
-        <Link className='px-4 rounded-lg py-3 my-4 focus:mx-4 focus:bg-primary/90  focus:text-tealWord transition-all duration-300 ease-out flex'>
+        <Link
+          to={"/"}
+          className='px-4 rounded-lg py-3 my-4 focus:mx-4 focus:bg-primary/90  focus:text-tealWord transition-all duration-300 ease-linear flex'
+        >
           <GiShop size={"1.3rem"} className='mr-2' />
           Marketplace
         </Link>
@@ -72,10 +88,16 @@ function Nav() {
           <FaBloggerB size={"1.3rem"} className='mr-2' />
           Blog
         </Link>
-        <Link className='my-4 py-3 flex rounded-lg focus:mx-4 focus:bg-primary/90  focus:text-tealWord transition-all duration-300 ease-linear px-4 '>
-          <MdContactPage size={"1.3rem"} className='mr-2' />
-          Contact
-        </Link>
+        <button className='px-4 my-4 rounded-lg focus:mx-4 focus:bg-primary/90 w-full focus:text-tealWord transition-all duration-300 ease-linear '>
+          <a
+            href='https://wa.me/+2348119233513'
+            target={"_blank"}
+            className='flex'
+          >
+            <MdContactPage size={"1.3rem"} className='mr-2' />
+            Contact
+          </a>
+        </button>
       </section>
     </nav>
   );
