@@ -14,9 +14,9 @@ module.exports = {
         orangeWord: "#fff280",
       },
       animation: {
-        slideup: "slideup 1s cubic-bezier(.84,.18,.42,.94) 0.3s forwards",
+        slideup: "slideup 1.5s cubic-bezier(.84,.18,.42,.94) 0.5s forwards",
 
-        slideup2: "slideup 1s cubic-bezier(.84,.18,.42,.94) 0.4s forwards",
+        slideup2: "slideup 1.5s cubic-bezier(.84,.18,.42,.94) 0.6s forwards",
 
         slidedown: "slidedown 1s cubic-bezier(.84,.18,.42,.94) forwards",
 

@@ -15,7 +15,7 @@ function Intro() {
               }`}
             >
               <p className='lg:text-8xl text-4xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-pinkWord via-tealWord to-orangeWord bg-[200%]'>
-                Identify, Collect, and Sell Rare &
+                Identify, Collect, and Explore Rare Games
               </p>
 
               <p className='text-sm lg:text-base leading-loose lg:leading-normal lg:mt-10 text-text lg:px-5 py-5 lg:mr-5 rounded-xl backdrop-blur-3xl bg-gradient-to-r from-primary to-alt/10'>
