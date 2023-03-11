@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaBloggerB } from "react-icons/fa";
 import { MdContactPage, MdClose } from "react-icons/md";
+import {IoGameController} from "react-icons/io5"
 import { FiMenu } from "react-icons/fi";
-import { GiShop } from "react-icons/gi";
 
 function Nav() {
   const [menu, setMenu] = useState(false);
@@ -12,7 +12,9 @@ function Nav() {
       className={`flex flex-row md:px-12 lg:px-0 h-auto fixed z-10 top-0 bg-primary lg:bg-primary/80 lg:backdrop-blur-3xl lg:justify-between w-screen  text-white py-6 `}
     >
       <section className='lg:basis-1/4 container mx-auto basis-full lg:block flex lg:px-0 md:px-10 px-4 justify-between lg:text-center text-lg lg:text-2xl font-bold'>
-        <h3>NXTGaming</h3>
+        <Link to={"/"} className='custom'>
+          NXTGaming
+        </Link>
 
         <div>
           <FiMenu
@@ -35,8 +37,8 @@ function Nav() {
           to={"/Game"}
           className='px-4 py-2 my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'
         >
-          <GiShop size={"1.3rem"} className='mr-2' />
-          Marketplace
+          <IoGameController size={"1.3rem"} className='mr-2' />
+          Games
         </Link>
         <Link className='px-4 py-2 my-4 lg:my-0 focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'>
           <FaBloggerB size={"1.3rem"} className='mr-2' />
@@ -61,7 +63,9 @@ function Nav() {
         } `}
       >
         <div className='flex my-5 px-4  justify-between'>
-          <h3 className='text-lg font-bold'>NXTGaming</h3>
+          <Link to={"/"} className='text-lg font-bold custom'>
+            NXTGaming
+          </Link>
           <div>
             <MdClose
               size={"1.5rem"}
@@ -81,8 +85,8 @@ function Nav() {
           to={"/Game"}
           className='px-4 rounded-lg py-3 my-4 focus:mx-4 focus:bg-primary/90  focus:text-tealWord transition-all duration-300 ease-linear flex'
         >
-          <GiShop size={"1.3rem"} className='mr-2' />
-          Marketplace
+          <IoGameController size={"1.3rem"} className='mr-2' />
+          Games
         </Link>
         <Link className='px-4 py-3 my-4 rounded-lg focus:mx-4 focus:bg-primary/90  focus:text-tealWord transition-all duration-300 ease-linear flex'>
           <FaBloggerB size={"1.3rem"} className='mr-2' />

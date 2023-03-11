@@ -6,7 +6,7 @@ function Loading() {
     <React.Fragment>
       <section className='min-h-screen shape overflow-y-hidden box-border w-full isolate bg-primary flex justify-center flex-col items-center text-text'>
         <div className='mx-10'>
-          <p className='text-5xl md:text-7xl animate-slideleftmax font-bold tracking-wider'>
+          <p className='text-4xl md:text-7xl animate-slideleftmax font-bold tracking-wider custom'>
             NXTGaming
           </p>
           <p className='indent-10 lg:indent-20 text-xs font-thin md:text-base flick mt-3'>

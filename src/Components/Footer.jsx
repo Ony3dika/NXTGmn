@@ -6,8 +6,8 @@ function Footer() {
     <React.Fragment>
       <section className='container mx-auto lg:px-10 py-5 pb-10 lg:py-10 px-5 md:px-10 flex justify-between align-baseline border-t-2 border-tealWord rounded-t-lg text-sm lg:text-base lg:leading-normal leading-loose text-text'>
         <div className='basis-2/5 md:basis-1/5 font-bold'>
-          <p>NXTGaming</p>
-          <p className="font-semibold">All right Reserved</p>
+          <p className=' custom'>NXTGaming</p>
+          <p className='font-semibold'>All right Reserved</p>
         </div>
 
         <div className='basis-3/5 hidden md:block text-center font-medium'>

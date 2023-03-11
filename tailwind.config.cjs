@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         primary: "#020531",
         sub: "#191b34",
+        med: "#070b3f",
         alt: "#000222",
         text: "#fdefe2",
         tealWord: "#15b6b1",
@@ -24,7 +25,8 @@ module.exports = {
 
         slideright: "slideright 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
 
-        slideleftmax: "slideleftmax 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
+        slideleftmax:
+          "slideleftmax 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
 
         slowfade: "slowfade 0.3s cubic-bezier(.84,.18,.62,.67) forwards",
       },

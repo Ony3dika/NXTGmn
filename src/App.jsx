@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes, BrowserRouter } from "react-router-dom";
-import Home from "./Pages/Home/Home";
+import Home from "./Pages/Landing/Home";
 import "./index.css";
-import Game from "./Pages/Games/Game";
-import Loading from "./Pages/Home/Loading";
+import Game from "./Pages/Home/Game";
+import Loading from "./Pages/Landing/Loading";
 
 function App() {
   const [loading, setLoading] = useState(false);

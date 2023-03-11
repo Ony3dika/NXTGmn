@@ -8,6 +8,15 @@
   }
 }
 
+@font-face {
+font-family: "Custom";
+src: url("./assets/BruceForeverRegular-X3jd2.ttf");
+}
+
+.custom{
+  font-family: "Custom";
+}
+
 .shape {
   background-size: cover;
   background-position: center;
