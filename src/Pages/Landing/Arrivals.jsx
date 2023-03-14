@@ -25,7 +25,7 @@ function Arrivals() {
           )}
         </InView>
 
-        <InView triggerOnce={true} threshold={0.7}>
+        <InView triggerOnce={true} threshold={0.5}>
           {({ inView, ref, entry }) => (
             <p
               ref={ref}

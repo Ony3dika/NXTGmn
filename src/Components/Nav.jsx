@@ -46,7 +46,7 @@ function Nav() {
         </Link>
         <button className='my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg  hover:text-pinkWord focus:text-tealWord rounded-lg transition-all duration-300 ease-linear px-4 py-2'>
           <a
-            href='https://wa.me/+2348119233513'
+            href='https://www.linkedin.com/in/onyedikachukwu-akpa-127360248'
             target={"_blank"}
             className='flex'
           >
@@ -94,7 +94,7 @@ function Nav() {
         </Link>
         <button className='px-4 my-4 rounded-lg focus:mx-4 focus:bg-primary/90 w-full focus:text-tealWord transition-all duration-300 ease-linear '>
           <a
-            href='https://wa.me/+2348119233513'
+            href='https://www.linkedin.com/in/onyedikachukwu-akpa-127360248'
             target={"_blank"}
             className='flex'
           >

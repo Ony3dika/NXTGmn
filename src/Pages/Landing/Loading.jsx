@@ -1,5 +1,5 @@
 import React from 'react'
-import coil from "../../assets/cccoil.svg"
+import coil from "../../assets/coil.svg"
 
 function Loading() {
   return (

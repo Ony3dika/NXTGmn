@@ -15,7 +15,7 @@ function Intro() {
               }`}
             >
               <p className='lg:text-8xl text-4xl font-extrabold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-pinkWord via-tealWord to-orangeWord bg-[200%]'>
-                Identify, Collect, and Explore Rare Games
+                Identify, and Explore Rare Games
               </p>
 
               <p className='text-sm lg:text-base leading-loose lg:leading-normal lg:mt-10 text-text lg:px-5 py-5 lg:mr-5 rounded-xl backdrop-blur-3xl bg-gradient-to-r from-primary to-alt/10'>
@@ -32,7 +32,7 @@ function Intro() {
             </div>
           )}
         </InView>
-        <InView triggerOnce={true} threshold={0.6}>
+        <InView triggerOnce={true} threshold={0.4}>
           {({ inView, ref, entry }) => (
             <div ref={ref} className={`lg:basis-1/3 basis-full opacity-0 ${inView ? "animate-slideup2" : " " }`}>
               <img

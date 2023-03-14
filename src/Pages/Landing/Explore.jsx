@@ -8,7 +8,7 @@ function Explore() {
   return (
     <React.Fragment>
       <section className='container mx-auto lg:px-10 px-5 md:px-10 pb-10 my-0 md:my-5 lg:my-10 text-text flex'>
-        <InView triggerOnce={true} threshold={0.6}>
+        <InView triggerOnce={true} threshold={0.45}>
           {({ inView, ref, entry }) => (
             <div
               ref={ref}
@@ -33,7 +33,7 @@ function Explore() {
           )}
         </InView>
 
-        <InView triggerOnce={false} threshold={0.8}>
+        <InView triggerOnce={false} threshold={0.6}>
           {({ inView, ref, entry }) => (
             <div
               ref={ref}

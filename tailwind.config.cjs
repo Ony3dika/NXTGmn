@@ -25,8 +25,7 @@ module.exports = {
 
         slideright: "slideright 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
 
-        slideleftmax:
-          "slideleftmax 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
+        slideleftmax:"slideleftmax 2s cubic-bezier(.44,-0.29,.12,.96) forwards",
 
         slowfade: "slowfade 0.3s cubic-bezier(.84,.18,.62,.67) forwards",
       },

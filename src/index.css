@@ -24,7 +24,7 @@ src: url("./assets/BruceForeverRegular-X3jd2.ttf");
 }
 
 .flick {
-  animation: sb 2s cubic-bezier(0.23, 1, 0.32, 1) 1s both;
+  animation: sb 2s cubic-bezier(.84,.18,.42,.94) 1s both;
 }
 
 @keyframes sb {
