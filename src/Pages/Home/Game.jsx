@@ -6,7 +6,9 @@ import List from "./List.jsx";
 import Btlist from "./Btlist.jsx";
 import pic5 from "../../assets/img25.jpg";
 import { FaStar } from "react-icons/fa";
-import gif from "../../assets/ripple.svg";
+import gif from "../../assets/ripple2.svg";
+import Details from "./Details.jsx";
+
 function Game() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,6 +36,26 @@ function Game() {
       });
   }, []);
 
+  const getGameDetails = (id) => {
+    console.log(id);
+    const options = {
+      method: "GET",
+      url: `https://rawg-video-games-database.p.rapidapi.com/games/${id}?key=f58d8c3022554fca911687f4e440b514`,
+
+      headers: {
+        "X-RapidAPI-Key": "8755e71222msh09f429617efba1ap1fe33bjsn0d2e97b3c98b",
+      },
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  };
   return (
     <React.Fragment>
       <main className='min-h-screen box-border w-full bg-primary'>
@@ -41,6 +63,7 @@ function Game() {
 
         <div className='pt-24 lg:pt-32 md:pt-28 px-5 md:px-10 flex flex-col lg:flex-row text-text'>
           <List />
+          {/* <Details /> */}
 
           <section className=' basis-full lg:basis-3/4 lg:pl-8 relative isolate'>
             {loading ? (
@@ -71,8 +94,6 @@ function Game() {
                 <p className='lg:text-5xl text-2xl ml-5 text-gray-400 font-extrabold leading-tight'>
                   Discover Amazing Games...
                 </p>
-
-                
               </div>
             </div>
 
@@ -80,7 +101,7 @@ function Game() {
               {games &&
                 games.map((game) => {
                   return (
-                    <div className='h-72'>
+                    <div className='h-72' key={game.id}>
                       <img
                         src={game.background_image}
                         className='rounded-3xl w-full object-cover h-3/5'
@@ -90,7 +111,10 @@ function Game() {
                       {/* Title */}
 
                       <div className='h-2/5 pl-2 pt-3'>
-                        <p className='text-lg font-medium text-tealWord'>
+                        <p
+                          className='text-lg font-medium text-tealWord cursor-pointer'
+                          onClick={() => getGameDetails(game.id)}
+                        >
                           {game.name}
                         </p>
 
