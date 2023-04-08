@@ -11,7 +11,9 @@ import Details from "./Details.jsx";
 
 function Game() {
   const [games, setGames] = useState([]);
+  const [game, setGame] = useState("");
   const [loading, setLoading] = useState(true);
+  const [display, setDisplay] = useState(false);
 
   useEffect(() => {
     const options = {
@@ -36,25 +38,36 @@ function Game() {
       });
   }, []);
 
-  const getGameDetails = (id) => {
-    console.log(id);
-    const options = {
-      method: "GET",
-      url: `https://rawg-video-games-database.p.rapidapi.com/games/${id}?key=f58d8c3022554fca911687f4e440b514`,
 
-      headers: {
-        "X-RapidAPI-Key": "8755e71222msh09f429617efba1ap1fe33bjsn0d2e97b3c98b",
-      },
-    };
+  // Details of Games
+  // const getGameDetails = (id) => {
+  //   console.log(id);
+  //   const options = {
+  //     method: "GET",
+  //     url: `https://rawg-video-games-database.p.rapidapi.com/games/${id}?key=f58d8c3022554fca911687f4e440b514`,
 
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+  //     headers: {
+  //       "X-RapidAPI-Key": "8755e71222msh09f429617efba1ap1fe33bjsn0d2e97b3c98b",
+  //     },
+  //   };
+
+  //   axios
+  //     .request(options)
+  //     .then(function (response) {
+  //       console.log(response.data);
+  //       setDetails(response.data)
+  //     })
+  //     .catch(function (error) {
+  //       console.error(error);
+  //     });
+
+  //     setDisplay(true)
+  // };
+
+
+  // Changing Visibility of Details
+  const displayDetails = () => {
+    setDisplay(!display);
   };
   return (
     <React.Fragment>
@@ -63,7 +76,9 @@ function Game() {
 
         <div className='pt-24 lg:pt-32 md:pt-28 px-5 md:px-10 flex flex-col lg:flex-row text-text'>
           <List />
-          {/* <Details /> */}
+         {
+          display ?  <Details show={displayDetails} game={game}/> : ""
+         }
 
           <section className=' basis-full lg:basis-3/4 lg:pl-8 relative isolate'>
             {loading ? (
@@ -113,7 +128,10 @@ function Game() {
                       <div className='h-2/5 pl-2 pt-3'>
                         <p
                           className='text-lg font-medium text-tealWord cursor-pointer'
-                          onClick={() => getGameDetails(game.id)}
+                          onClick={()=>{
+                            setGame(game.id);
+                            setDisplay(true)
+                          }}
                         >
                           {game.name}
                         </p>
@@ -122,7 +140,7 @@ function Game() {
 
                         <div className='flex items-center mt-1 text-gray-400'>
                           <p className='text-sm font-medium'>{game.rating}</p>
-                          <FaStar className='ml-1' size={"0.8rem"} />
+                          <FaStar className='ml-1 text-yellow-500' size={"0.8rem"} />
                         </div>
 
                         {/* Categories */}
