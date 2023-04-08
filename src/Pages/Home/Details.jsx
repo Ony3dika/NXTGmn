@@ -38,6 +38,7 @@ function Details(props) {
     <React.Fragment>
       <main className='h-screen box-border w-full fixed top-0 left-0 pt-24 lg:pt-16 md:pt-28 z-10 flex justify-center bg-black/80'>
         <div className='w-11/12 h-[96%] overflow-y-scroll pb-5 px-3 md:px-12 bg-primary rounded-lg'>
+          {/* Loading Icon  */}
           {loading ? (
             <div className='w-full pointer-events-none h-1/10 flex justify-center fixed left-0'>
               <div className='w-2/5 bg-alt border-[1px] border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
@@ -47,6 +48,8 @@ function Details(props) {
           ) : (
             ""
           )}
+
+          {/* Close Button */}
           <div className='bg- p-5 w-full flex justify-end'>
             <FaWindowClose
               className='hover:text-pinkWord transition-all duration-100 ease-linear'
@@ -55,6 +58,7 @@ function Details(props) {
             />
           </div>
 
+          {/* Game Details  */}
           <div>
             <div className='flex md:h-72'>
               <div className='basis-2/5 lg:h-72'>
@@ -75,6 +79,7 @@ function Details(props) {
                   <FaStar className='ml-1 text-yellow-500' size={"0.8rem"} />
                 </div>
 
+                {/* Game Devs */}
                 <p className='mt-1 md:mt-3'>
                   Developers:
                   {details.developers &&

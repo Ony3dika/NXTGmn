@@ -38,33 +38,6 @@ function Game() {
       });
   }, []);
 
-
-  // Details of Games
-  // const getGameDetails = (id) => {
-  //   console.log(id);
-  //   const options = {
-  //     method: "GET",
-  //     url: `https://rawg-video-games-database.p.rapidapi.com/games/${id}?key=f58d8c3022554fca911687f4e440b514`,
-
-  //     headers: {
-  //       "X-RapidAPI-Key": "8755e71222msh09f429617efba1ap1fe33bjsn0d2e97b3c98b",
-  //     },
-  //   };
-
-  //   axios
-  //     .request(options)
-  //     .then(function (response) {
-  //       console.log(response.data);
-  //       setDetails(response.data)
-  //     })
-  //     .catch(function (error) {
-  //       console.error(error);
-  //     });
-
-  //     setDisplay(true)
-  // };
-
-
   // Changing Visibility of Details
   const displayDetails = () => {
     setDisplay(!display);
