@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaWindowClose, FaStar } from "react-icons/fa";
+import { IoIosCloseCircle } from "react-icons/io";
 import gif from "../../assets/ripple2.svg";
 
 function Details(props) {
@@ -36,7 +37,7 @@ function Details(props) {
   }
   return (
     <React.Fragment>
-      <main className='h-screen box-border w-full fixed top-0 left-0 pt-24 lg:pt-16 md:pt-28 z-10 flex justify-center bg-black/80'>
+      <main className='h-screen box-border w-full fixed top-0 left-0 pt-16 lg:pt-16 md:pt-28 z-10 flex justify-center bg-black/80'>
         <div className='w-11/12 h-[96%] overflow-y-scroll pb-5 px-3 md:px-12 bg-primary rounded-lg'>
           {/* Loading Icon  */}
           {loading ? (
@@ -51,9 +52,9 @@ function Details(props) {
 
           {/* Close Button */}
           <div className='bg- p-5 w-full flex justify-end'>
-            <FaWindowClose
+            <IoIosCloseCircle
               className='hover:text-pinkWord transition-all duration-100 ease-linear'
-              size={"1.3rem"}
+              size={"2rem"}
               onClick={() => props.show()}
             />
           </div>
@@ -63,7 +64,7 @@ function Details(props) {
             <div className='flex md:h-72'>
               <div className='basis-2/5 lg:h-72'>
                 <img
-                  className='object-cover h-full w-full rounded-lg'
+                  className='object-cover w-full rounded-lg'
                   src={details.background_image}
                   alt=''
                 />
@@ -74,21 +75,20 @@ function Details(props) {
                   {details.name}
                 </p>
 
+                {/* Game Devs */}
+                <p className='mt-1 md:mt-3 overflow-hidden h-6'>
+                  {details.developers &&
+                    details.developers.map((dev) => (
+                      <span className='text-gray-400 ml-1' key={dev.id}>
+                        {dev.name} |
+                      </span>
+                    ))}
+                </p>
+
                 <div className='flex items-center mt-1'>
                   <p>{details.rating}</p>
                   <FaStar className='ml-1 text-yellow-500' size={"0.8rem"} />
                 </div>
-
-                {/* Game Devs */}
-                <p className='mt-1 md:mt-3'>
-                  Developers:
-                  {details.developers &&
-                    details.developers.map((dev) => (
-                      <span className='text-gray-400 ml-2' key={dev.id}>
-                        {dev.name},
-                      </span>
-                    ))}
-                </p>
               </div>
             </div>
             <p className='mt-5 text-gray-400 text-sm lg:text-base lg:leading-normal md:block leading-loose'>

@@ -92,8 +92,12 @@ function Game() {
                     <div className='h-72' key={game.id}>
                       <img
                         src={game.background_image}
-                        className='rounded-3xl w-full object-cover h-3/5'
+                        className='rounded-3xl w-full object-cover h-3/5 cursor-pointer'
                         alt='game-cover'
+                        onClick={() => {
+                          setGame(game.id);
+                          setDisplay(true);
+                        }}
                       />
 
                       {/* Title */}
@@ -101,9 +105,9 @@ function Game() {
                       <div className='h-2/5 pl-2 pt-3'>
                         <p
                           className='text-lg font-medium text-tealWord cursor-pointer'
-                          onClick={()=>{
+                          onClick={() => {
                             setGame(game.id);
-                            setDisplay(true)
+                            setDisplay(true);
                           }}
                         >
                           {game.name}
@@ -113,7 +117,10 @@ function Game() {
 
                         <div className='flex items-center mt-1 text-gray-400'>
                           <p className='text-sm font-medium'>{game.rating}</p>
-                          <FaStar className='ml-1 text-yellow-500' size={"0.8rem"} />
+                          <FaStar
+                            className='ml-1 text-yellow-500'
+                            size={"0.8rem"}
+                          />
                         </div>
 
                         {/* Categories */}
