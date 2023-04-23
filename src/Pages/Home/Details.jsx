@@ -8,8 +8,10 @@ function Details(props) {
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const [executed, setExecuted] = useState(false);
+  const [error, setError] = useState("");
+  const [validate, setValidate] = useState(false);
+
   const getGameDetails = () => {
-    console.log();
     const options = {
       method: "GET",
       url: `https://rawg-video-games-database.p.rapidapi.com/games/${props.game}?key=f58d8c3022554fca911687f4e440b514`,
@@ -28,6 +30,8 @@ function Details(props) {
       })
       .catch(function (error) {
         console.error(error);
+        setError(error.message);
+        setValidate(true);
       });
     setExecuted(true);
   };
@@ -41,9 +45,25 @@ function Details(props) {
         <div className='w-11/12 h-[96%] overflow-y-scroll pb-5 px-3 md:px-12 bg-primary rounded-lg'>
           {/* Loading Icon  */}
           {loading ? (
-            <div className='w-full pointer-events-none h-1/10 flex justify-center fixed left-0'>
-              <div className='w-2/5 bg-alt border-[1px] border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
-                <img src={gif} alt='Loading...' />
+            <div className='w-full h-1/10 flex justify-center fixed left-0'>
+              <div className='w-3/5 md:w-2/5 h-36 md:h-52 bg-alt border-[1px] border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
+                 {validate ? (
+                    <div className='flex items-center flex-col justify-around'>
+                      <p className='font-extrabold text-gray-300'>{error} 😵</p>
+
+                      <button
+                        className='text-pinkWord bg-primary border-[1px] border-gray-100/10 font-bold rounded-3xl px-12 py-3'
+                        onClick={() => {
+                          setValidate(false);
+                          getGameDetails()
+                        }}
+                      >
+                        Retry
+                      </button>
+                    </div>
+                  ) : (
+                    <img src={gif} alt='Loading...' />
+                  )}
               </div>
             </div>
           ) : (

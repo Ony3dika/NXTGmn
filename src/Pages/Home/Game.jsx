@@ -14,6 +14,9 @@ function Game() {
   const [game, setGame] = useState("");
   const [loading, setLoading] = useState(true);
   const [display, setDisplay] = useState(false);
+  const [error, setError] = useState("");
+  const [validate, setValidate] = useState(false);
+  const [run, setRun] = useState(true);
 
   useEffect(() => {
     const options = {
@@ -35,8 +38,10 @@ function Game() {
       })
       .catch(function (error) {
         console.error(error);
+        setError(error.message);
+        setValidate(true);
       });
-  }, []);
+  }, [run]);
 
   // Changing Visibility of Details
   const displayDetails = () => {
@@ -49,15 +54,29 @@ function Game() {
 
         <div className='pt-24 lg:pt-32 md:pt-28 px-5 md:px-10 flex flex-col lg:flex-row text-text'>
           <List />
-         {
-          display ?  <Details show={displayDetails} game={game}/> : ""
-         }
+          {display ? <Details show={displayDetails} game={game} /> : ""}
 
           <section className=' basis-full lg:basis-3/4 lg:pl-8 relative isolate'>
             {loading ? (
               <div className='w-full h-1/10 flex justify-center absolute'>
-                <div className='w-2/5 bg-alt/90 border-[1px] border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
-                  <img src={gif} alt='Loading...' />
+                <div className='w-3/5 md:w-2/5 bg-alt/90 border-[1px] h-36 md:h-52 border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
+                  {validate ? (
+                    <div className='flex items-center flex-col justify-around'>
+                      <p className='font-extrabold text-gray-300'>{error} 😵</p>
+
+                      <button
+                        className='text-pinkWord bg-primary border-[1px] border-gray-100/10 font-bold rounded-3xl px-12 py-3'
+                        onClick={() => {
+                          setRun(!run);
+                          setValidate(false);
+                        }}
+                      >
+                        Retry
+                      </button>
+                    </div>
+                  ) : (
+                    <img src={gif} alt='Loading...' />
+                  )}
                 </div>
               </div>
             ) : (
