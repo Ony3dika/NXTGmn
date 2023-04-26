@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../Components/Nav.jsx";
 import axios from "axios";
 import { BiSearchAlt2 } from "react-icons/bi";
+import { GiNextButton, GiPreviousButton } from "react-icons/gi";
 import List from "./List.jsx";
-import Btlist from "./Btlist.jsx";
+import Btlist from "./Mobilelist.jsx";
 import pic5 from "../../assets/img25.jpg";
 import { FaStar } from "react-icons/fa";
 import gif from "../../assets/ripple2.svg";
@@ -17,17 +18,23 @@ function Game() {
   const [error, setError] = useState("");
   const [validate, setValidate] = useState(false);
   const [run, setRun] = useState(true);
+  const [next, setNext] = useState("");
+  const [prev, setPrev] = useState("");
+  const [url, setUrl] = useState(
+    "https://rawg-video-games-database.p.rapidapi.com/games?key=f58d8c3022554fca911687f4e440b514"
+  );
 
   useEffect(() => {
     const options = {
       method: "GET",
-      url: "https://rawg-video-games-database.p.rapidapi.com/games?key=f58d8c3022554fca911687f4e440b514",
+      url: url,
 
       headers: {
         "X-RapidAPI-Key": "8755e71222msh09f429617efba1ap1fe33bjsn0d2e97b3c98b",
         // "X-RapidAPI-Host": "rawg-video-games-database.p.rapidapi.com",
       },
     };
+    setLoading(true);
 
     axios
       .request(options)
@@ -35,17 +42,29 @@ function Game() {
         console.log(response.data);
         setGames(response.data.results);
         setLoading(false);
+        setNext(response.data.next);
+        setPrev(response.data.previous)
       })
+
+
       .catch(function (error) {
         console.error(error);
         setError(error.message);
         setValidate(true);
       });
-  }, [run]);
+  }, [run, url]);
 
   // Changing Visibility of Details
   const displayDetails = () => {
     setDisplay(!display);
+  };
+
+  //Changing URL
+
+  const change = () => {
+    setUrl(
+      "https://rawg-video-games-database.p.rapidapi.com/genres/3?key=f58d8c3022554fca911687f4e440b514"
+    );
   };
   return (
     <React.Fragment>
@@ -53,12 +72,18 @@ function Game() {
         <Navbar />
 
         <div className='pt-24 lg:pt-32 md:pt-28 px-5 md:px-10 flex flex-col lg:flex-row text-text'>
-          <List />
+          {/* Genre List */}
+          <List genre={change} />
+
+          {/* Game Details */}
           {display ? <Details show={displayDetails} game={game} /> : ""}
 
           <section className=' basis-full lg:basis-3/4 lg:pl-8 relative isolate'>
             {loading ? (
-              <div className='w-full h-1/10 flex justify-center absolute'>
+              <div
+                className='w-full h-1/10 flex justify-center absolute'
+                id='top'
+              >
                 <div className='w-3/5 md:w-2/5 bg-alt/90 border-[1px] h-36 md:h-52 border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
                   {validate ? (
                     <div className='flex items-center flex-col justify-around'>
@@ -104,7 +129,7 @@ function Game() {
               </div>
             </div>
 
-            <div className='grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid gap-5 mt-10 h-fit pb-28'>
+            <div className='grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid gap-5 mt-10 h-fit'>
               {games &&
                 games.map((game) => {
                   return (
@@ -155,6 +180,37 @@ function Game() {
                     </div>
                   );
                 })}
+            </div>
+            <div className='pb-28 flex justify-center'>
+              {/* Previous Button */}
+              <a href='#top'>
+                <button
+                  onClick={() =>
+                    setUrl(
+                      `https://rawg-video-games-database.p.rapidapi.com/games?key=f58d8c3022554fca911687f4e440b514&page=${prev.slice(-1)}`
+                    )
+                  }
+                  className='bg-med/60 border-[1px] text-gray-400 border-gray-100/10 px-12 flex justify-center py-4 rounded-xl mt-5  focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear mr-5'
+                >
+                  Previous
+                  <GiPreviousButton className='ml-2' size={"1.5rem"} />
+                </button>
+              </a>
+
+              {/* Next Button */}
+              <a href='#top'>
+                <button
+                  onClick={() =>
+                    setUrl(
+                      `https://rawg-video-games-database.p.rapidapi.com/games?key=f58d8c3022554fca911687f4e440b514&page=${next.slice(-1)}`
+                    )
+                  }
+                  className='bg-med/60 border-[1px] text-gray-400 border-gray-100/10 px-12 flex justify-center py-4 rounded-xl mt-5  focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear'
+                >
+                  Next
+                  <GiNextButton className='ml-2' size={"1.5rem"} />
+                </button>
+              </a>
             </div>
           </section>
 

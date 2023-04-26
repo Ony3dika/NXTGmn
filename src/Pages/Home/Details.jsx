@@ -24,7 +24,6 @@ function Details(props) {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
         setDetails(response.data);
         setLoading(false);
       })
@@ -46,7 +45,7 @@ function Details(props) {
           {/* Loading Icon  */}
           {loading ? (
             <div className='w-full h-1/10 flex justify-center fixed left-0'>
-              <div className='w-3/5 md:w-2/5 h-36 md:h-52 bg-alt border-[1px] border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
+              <div className='w-2/5 mt-10 h-36 md:h-52 bg-alt border-[1px] border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
                  {validate ? (
                     <div className='flex items-center flex-col justify-around'>
                       <p className='font-extrabold text-gray-300'>{error} 😵</p>
@@ -73,7 +72,7 @@ function Details(props) {
           {/* Close Button */}
           <div className='bg- p-5 w-full flex justify-end'>
             <IoIosCloseCircle
-              className='hover:text-pinkWord transition-all duration-100 ease-linear'
+              className='hover:text-pinkWord absolute transition-all duration-100 ease-linear'
               size={"2rem"}
               onClick={() => props.show()}
             />
