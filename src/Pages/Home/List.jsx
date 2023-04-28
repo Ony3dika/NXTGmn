@@ -9,6 +9,8 @@ function List(props) {
       <section className='h-[calc(100vh-10rem)] lg:block hidden sticky left-0 top-32 bg-med/60 border-[1px] border-gray-100/10 basis-full lg:basis-1/5 rounded-lg p-4'>
         <h3 className='font-semibold mt-5'>CATEGORIES</h3>
         <div className='ml-3 mt-5'>
+
+        {/* //Categories */}
           <button onClick={()=> props.genre()} className='w-full flex text-gray-400 focus:bg-alt/70 focus:rounded-lg  hover:text-white focus:text-tealWord rounded-lg transition-all duration-300 ease-linear px-4 py-3 my-3'>
             <GiPistolGun size={"1.3rem"} className='mr-2 mt-1' />
             Action

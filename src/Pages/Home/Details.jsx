@@ -25,6 +25,7 @@ function Details(props) {
       .request(options)
       .then(function (response) {
         setDetails(response.data);
+        console.log(response.data)
         setLoading(false);
       })
       .catch(function (error) {
@@ -80,17 +81,17 @@ function Details(props) {
 
           {/* Game Details  */}
           <div>
-            <div className='flex md:h-72'>
-              <div className='basis-2/5 lg:h-72'>
+            <div className='flex'>
+              <div className='basis-2/5 md:h-48 lg:h-72'>
                 <img
-                  className='object-cover w-full rounded-lg'
+                  className='object-cover w-full h-full md:h-full rounded-lg'
                   src={details.background_image}
                   alt=''
                 />
               </div>
 
               <div className='ml-3 md:ml-5 basis-3/5'>
-                <p className='text-lg lg:text-3xl font-medium text-tealWord cursor-pointer'>
+                <p className='text-lg lg:text-3xl font-bold text-tealWord cursor-pointer'>
                   {details.name}
                 </p>
 
@@ -110,7 +111,7 @@ function Details(props) {
                 </div>
               </div>
             </div>
-            <p className='mt-5 text-gray-400 text-sm lg:text-base lg:leading-normal md:block leading-loose'>
+            <p className=' text-gray-400 mt-5 text-sm lg:text-base lg:leading-normal md:block leading-loose'>
               {details.description_raw}
             </p>
           </div>

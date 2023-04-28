@@ -43,9 +43,8 @@ function Game() {
         setGames(response.data.results);
         setLoading(false);
         setNext(response.data.next);
-        setPrev(response.data.previous)
+        setPrev(response.data.previous);
       })
-
 
       .catch(function (error) {
         console.error(error);
@@ -87,7 +86,9 @@ function Game() {
                 <div className='w-3/5 md:w-2/5 bg-alt/90 border-[1px] h-36 md:h-52 border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
                   {validate ? (
                     <div className='flex items-center flex-col justify-around'>
-                      <p className='font-extrabold text-gray-300'>{error} 😵</p>
+                      <p className='font-extrabold text-center text-gray-300'>
+                        {error} 😵
+                      </p>
 
                       <button
                         className='text-pinkWord bg-primary border-[1px] border-gray-100/10 font-bold rounded-3xl px-12 py-3'
@@ -148,7 +149,7 @@ function Game() {
 
                       <div className='h-2/5 pl-2 pt-3'>
                         <p
-                          className='text-lg font-medium text-tealWord cursor-pointer'
+                          className='text-lg font-semibold text-tealWord cursor-pointer'
                           onClick={() => {
                             setGame(game.id);
                             setDisplay(true);
@@ -170,8 +171,8 @@ function Game() {
                         {/* Categories */}
 
                         <div className='font-thin flex mt-1 -ml-3'>
-                          {game.genres.map((genre) => (
-                            <div className='bg-med/90 ml-2 border-[1px] truncate border-gray-100/10 rounded-3xl py-1.5 px-4'>
+                          {game.genres.map((genre,id) => (
+                            <div key={id} className='bg-med/90 ml-2 border-[1px] truncate border-gray-100/10 rounded-3xl py-1.5 px-4'>
                               {genre.name}
                             </div>
                           ))}
@@ -182,15 +183,18 @@ function Game() {
                 })}
             </div>
             <div className='pb-28 flex justify-center'>
+
               {/* Previous Button */}
               <a href='#top'>
                 <button
-                  onClick={() =>
-                    setUrl(
-                      `https://rawg-video-games-database.p.rapidapi.com/games?key=f58d8c3022554fca911687f4e440b514&page=${prev.slice(-1)}`
-                    )
-                  }
-                  className='bg-med/60 border-[1px] text-gray-400 border-gray-100/10 px-12 flex justify-center py-4 rounded-xl mt-5  focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear mr-5'
+                  onClick={() => {
+                    let oldPage = prev.replace(
+                      "https://api.rawg.io/api",
+                      "https://rawg-video-games-database.p.rapidapi.com"
+                    );
+                    setUrl(oldPage);
+                  }}
+                  className='bg-med/60 border-[1px] text-gray-400 border-gray-100/10 px-9 flex justify-center py-4 rounded-xl mt-5  focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear mr-5'
                 >
                   Previous
                   <GiPreviousButton className='ml-2' size={"1.5rem"} />
@@ -200,12 +204,15 @@ function Game() {
               {/* Next Button */}
               <a href='#top'>
                 <button
-                  onClick={() =>
-                    setUrl(
-                      `https://rawg-video-games-database.p.rapidapi.com/games?key=f58d8c3022554fca911687f4e440b514&page=${next.slice(-1)}`
-                    )
-                  }
-                  className='bg-med/60 border-[1px] text-gray-400 border-gray-100/10 px-12 flex justify-center py-4 rounded-xl mt-5  focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear'
+                  onClick={() => {
+                    let newPage = next.replace(
+                      "https://api.rawg.io/api",
+                      "https://rawg-video-games-database.p.rapidapi.com"
+                    );
+
+                    setUrl(newPage);
+                  }}
+                  className='bg-med/60 border-[1px] text-gray-400 border-gray-100/10 px-9 flex justify-center py-4 rounded-xl mt-5  focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear'
                 >
                   Next
                   <GiNextButton className='ml-2' size={"1.5rem"} />

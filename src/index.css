@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer {
   .nav-icon {
     @apply text-lime-500 font-extrabold;
   }
 }
-
 @font-face {
-font-family: "Custom";
-src: url("./assets/BruceForeverRegular-X3jd2.ttf");
+  font-family: "Custom";
+  src: url("./assets/BruceForeverRegular-X3jd2.ttf");
 }
 
-.custom{
+.custom {
   font-family: "Custom";
 }
 
@@ -24,7 +24,7 @@ src: url("./assets/BruceForeverRegular-X3jd2.ttf");
 }
 
 .flick {
-  animation: sb 2s cubic-bezier(0,.06,.68,.98) 1s both;
+  animation: sb 2s cubic-bezier(0, 0.06, 0.68, 0.98) 1s both;
 }
 
 @keyframes sb {
