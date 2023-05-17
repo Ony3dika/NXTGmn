@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { FaWindowClose, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { IoIosCloseCircle } from "react-icons/io";
 import gif from "../../assets/ripple2.svg";
 
@@ -25,7 +25,7 @@ function Details(props) {
       .request(options)
       .then(function (response) {
         setDetails(response.data);
-        console.log(response.data)
+        console.log(response.data);
         setLoading(false);
       })
       .catch(function (error) {
@@ -47,23 +47,23 @@ function Details(props) {
           {loading ? (
             <div className='w-full h-1/10 flex justify-center fixed left-0'>
               <div className='w-2/5 mt-10 h-36 md:h-52 bg-alt border-[1px] border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
-                 {validate ? (
-                    <div className='flex items-center flex-col justify-around'>
-                      <p className='font-extrabold text-gray-300'>{error} 😵</p>
+                {validate ? (
+                  <div className='flex items-center flex-col justify-around'>
+                    <p className='font-extrabold text-gray-300'>{error} 😵</p>
 
-                      <button
-                        className='text-pinkWord bg-primary border-[1px] border-gray-100/10 font-bold rounded-3xl px-12 py-3'
-                        onClick={() => {
-                          setValidate(false);
-                          getGameDetails()
-                        }}
-                      >
-                        Retry
-                      </button>
-                    </div>
-                  ) : (
-                    <img src={gif} alt='Loading...' />
-                  )}
+                    <button
+                      className='text-pinkWord bg-primary border-[1px] border-gray-100/10 font-bold rounded-3xl px-12 py-3'
+                      onClick={() => {
+                        setValidate(false);
+                        getGameDetails();
+                      }}
+                    >
+                      Retry
+                    </button>
+                  </div>
+                ) : (
+                  <img src={gif} alt='Loading...' />
+                )}
               </div>
             </div>
           ) : (

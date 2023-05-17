@@ -3,6 +3,7 @@ import Navbar from "../../Components/Nav.jsx";
 import axios from "axios";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { GiNextButton, GiPreviousButton } from "react-icons/gi";
+import { IoIosCloseCircle } from "react-icons/io";
 import List from "./List.jsx";
 import Btlist from "./Mobilelist.jsx";
 import pic5 from "../../assets/img25.jpg";
@@ -16,6 +17,7 @@ function Game() {
   const [loading, setLoading] = useState(true);
   const [display, setDisplay] = useState(false);
   const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
   const [validate, setValidate] = useState(false);
   const [run, setRun] = useState(true);
   const [next, setNext] = useState("");
@@ -31,7 +33,6 @@ function Game() {
 
       headers: {
         "X-RapidAPI-Key": "8755e71222msh09f429617efba1ap1fe33bjsn0d2e97b3c98b",
-        // "X-RapidAPI-Host": "rawg-video-games-database.p.rapidapi.com",
       },
     };
     setLoading(true);
@@ -59,11 +60,8 @@ function Game() {
   };
 
   //Changing URL
-
-  const change = () => {
-    setUrl(
-      "https://rawg-video-games-database.p.rapidapi.com/genres/3?key=f58d8c3022554fca911687f4e440b514"
-    );
+  const change = (data) => {
+    setUrl(data);
   };
   return (
     <React.Fragment>
@@ -86,12 +84,21 @@ function Game() {
                 <div className='w-3/5 md:w-2/5 bg-alt/90 border-[1px] h-36 md:h-52 border-gray-100/10 flex justify-center rounded-3xl z-10  backdrop-blur-md'>
                   {validate ? (
                     <div className='flex items-center flex-col justify-around'>
-                      <p className='font-extrabold text-center text-gray-300'>
+                    {/* Note */}
+                      {/* <IoIosCloseCircle
+                        size={"1.5rem"}
+                        onClick={() => {
+                          setValidate(false);
+                          setLoading(false)
+                        }}
+                      /> */}
+
+                      <p className='font-extrabold text-center p-3 text-gray-300'>
                         {error} 😵
                       </p>
 
                       <button
-                        className='text-pinkWord bg-primary border-[1px] border-gray-100/10 font-bold rounded-3xl px-12 py-3'
+                        className='text-pinkWord bg-primary border-[1px] border-gray-100/10 font-bold rounded-3xl mb-3 px-12 py-3'
                         onClick={() => {
                           setRun(!run);
                           setValidate(false);
@@ -108,13 +115,24 @@ function Game() {
             ) : (
               ""
             )}
-            <div className='mb-5 rounded-3xl bg-med/90 text-gray-400 lg:rounded-lg flex items-center border-[1px] border-gray-100/10'>
+            <div className='mb-5 rounded-2xl bg-med/90 text-gray-400 lg:rounded-lg flex items-center border-[1px] border-gray-100/10'>
+              {/* Search For Games */}
               <input
                 type='text'
                 placeholder='Search...'
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 className='font-medium bg-transparent outline-none pl-5 py-3 basis-10/12'
               />
-              <BiSearchAlt2 size={"1.3rem"} className='basis-2/12' />
+              <BiSearchAlt2
+                onClick={() =>
+                  setUrl(
+                    `https://rawg-video-games-database.p.rapidapi.com/games/${search}?key=f58d8c3022554fca911687f4e440b514&page_size=21`
+                  )
+                }
+                size={"1.3rem"}
+                className='basis-2/12 hover:text-pinkWord transition-all duration-300 ease-linear'
+              />
             </div>
             <div className='h-52 md:h-72 rounded-lg relative'>
               <img
@@ -149,7 +167,7 @@ function Game() {
 
                       <div className='h-2/5 pl-2 pt-3'>
                         <p
-                          className='text-lg font-semibold text-tealWord cursor-pointer'
+                          className='text-lg font-semibold truncate text-tealWord cursor-pointer'
                           onClick={() => {
                             setGame(game.id);
                             setDisplay(true);
@@ -171,8 +189,11 @@ function Game() {
                         {/* Categories */}
 
                         <div className='font-thin flex mt-1 -ml-3'>
-                          {game.genres.map((genre,id) => (
-                            <div key={id} className='bg-med/90 ml-2 border-[1px] truncate border-gray-100/10 rounded-3xl py-1.5 px-4'>
+                          {game.genres.slice(0, 3).map((genre, id) => (
+                            <div
+                              key={id}
+                              className='bg-med/90 ml-2 border-[1px] truncate border-gray-100/10 rounded-3xl py-1.5 px-4'
+                            >
                               {genre.name}
                             </div>
                           ))}
@@ -183,7 +204,6 @@ function Game() {
                 })}
             </div>
             <div className='pb-28 flex justify-center'>
-
               {/* Previous Button */}
               <a href='#top'>
                 <button
@@ -223,7 +243,7 @@ function Game() {
 
           {/* Fixed Bottom Nav */}
 
-          <Btlist />
+          <Btlist genre={change} />
         </div>
       </main>
     </React.Fragment>

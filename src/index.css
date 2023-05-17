@@ -24,7 +24,7 @@
 }
 
 .flick {
-  animation: sb 2s cubic-bezier(0, 0.06, 0.68, 0.98) 1s both;
+  animation: sb 2.5s ease 0.7s both;
 }
 
 @keyframes sb {

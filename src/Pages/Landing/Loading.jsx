@@ -9,7 +9,7 @@ function Loading() {
           <p className='text-4xl md:text-7xl animate-slideleftmax font-bold tracking-wider custom'>
             NXTGaming
           </p>
-          <p className='indent-10 lg:indent-20 text-xs font-thin md:text-base flick mt-3'>
+          <p className='indent-10 lg:indent-20 text-xs md:text-base lg:text-lg flick mt-3'>
             Level up your gaming experience with NXTGaming!
           </p>
         </div>

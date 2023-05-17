@@ -28,14 +28,14 @@ function Nav() {
       <section className='lg:basis-3/4 lg:flex lg:flex-row flex-col hidden justify-around font-thin'>
         <Link
           to={"/"}
-          className='px-4 py-2 my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'
+          className='px-4 py-2 my-3 lg:my-0 focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'
         >
           <FaHome size={"1.3rem"} className='mr-2' />
           Home
         </Link>
         <Link
           to={"/Game"}
-          className='px-4 py-2 my-3 lg:my-0  focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'
+          className='px-4 py-2 my-3 lg:my-0 focus:bg-alt/70 focus:rounded-lg focus:text-tealWord hover:text-pinkWord transition-all duration-300 ease-linear flex'
         >
           <IoGameController size={"1.3rem"} className='mr-2' />
           Games
