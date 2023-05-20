@@ -3,7 +3,6 @@ import Navbar from "../../Components/Nav.jsx";
 import axios from "axios";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { GiNextButton, GiPreviousButton } from "react-icons/gi";
-import { IoIosCloseCircle } from "react-icons/io";
 import List from "./List.jsx";
 import Btlist from "./Mobilelist.jsx";
 import pic5 from "../../assets/img25.jpg";
